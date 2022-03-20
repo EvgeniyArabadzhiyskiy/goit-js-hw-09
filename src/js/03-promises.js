@@ -25,7 +25,10 @@ function onFormInput(evt) {
 
 function onSubmit(evt) {
   evt.preventDefault();
-  const delay = formData.step;
+  
+  const delay = Number(formData.step);
+  let firstDelay = Number(formData.delay);
+
   
   if ((formData.delay && formData.step && formData.amount)) {
     
@@ -42,7 +45,9 @@ function onSubmit(evt) {
       const amountPromises = formData.amount;
       position += 1;
 
-      showPromiseResult(position, delay);
+      const notifyDelay = (firstDelay += delay) - delay;
+      
+      showPromiseResult(position, notifyDelay);
 
       if (Number(amountPromises) === position) {
         position = 0;
