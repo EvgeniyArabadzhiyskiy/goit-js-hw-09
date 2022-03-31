@@ -33,7 +33,7 @@ export class Timer {
       console.log(this.convertDate);
 
       if (deltaTime < 1000) {
-        z;
+    
         clearInterval(intervalId);
         this.isActive = false;
       }
